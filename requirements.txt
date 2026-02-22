@@ -1,4 +1,7 @@
 requests
 urllib3
 Pillow
+pandas
 numpy
+geopandas
+matplotlib
