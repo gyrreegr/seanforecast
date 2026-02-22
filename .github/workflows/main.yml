@@ -1,0 +1,43 @@
+name: Generate Image
+
+on:
+  workflow_dispatch:         # 可手動執行
+
+permissions:
+  contents: write   # ⭐ 必加，否則無法 push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    # 1️⃣ 下載 repo
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 2️⃣ 安裝 Python
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    # 3️⃣ 安裝套件
+    - name: Install requirements
+      run: |
+        pip install -r requirements.txt
+
+    # 4️⃣ 執行程式
+    - name: Run script
+      run: |
+        python 7daysforecast.py
+        python 2daysdorecast.py
+
+    # 5️⃣ Commit 並 push
+    - name: Commit and push
+      run: |
+        git config --local user.name "github-actions"
+        git config --local user.email "github-actions@github.com"
+        git add .
+        git commit -m "Auto update image" || echo "No changes"
+        git push
