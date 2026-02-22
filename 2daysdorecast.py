@@ -84,7 +84,7 @@ MODELS = {
         'get_fxx': get_standard_fxx
     },
     'gsm_ai': {
-        'csv_url': 'https://watch.ncdr.nat.gov.tw/php/list_realtime_date_csv.php?v=CHART_JMAGSM_FORECAST',
+        'csv_url': 'https://watch.ncdr.nat.gov.tw/php/list_realtime_date_csv.php?v=WRF2WEEKS_RAIN',
         'img_template': 'https://watch.ncdr.nat.gov.tw/00_Wxmap/2F8_JMAGSM_0.5deg/{YYYYMM}/{YYYYMMDDHH}/jmamsrn_{YYYYMMDDHH}_{XX}.png', # 注意 gsm 是直接接 _{XX}
         'layout': {'w': 1138.7, 'h': 1699.5, 'x': 3354.3, 'y': 506},
         'masks': [
@@ -258,4 +258,5 @@ def main():
     print("所有作業處理完畢！")
 
 if __name__ == "__main__":
+
     main()
