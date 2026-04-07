@@ -32,7 +32,6 @@ jobs:
       run: |
         python 7daysforecast.py
         python 2daysdorecast.py
-        python AQI_forecast.py
 
     # 5️⃣ Commit 並 push
     - name: Commit and push
